@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'l^&^wip9lx+b+ffqp^b0m*5s0pr1i6a$^(0(3n#=k=4kyqov&)'
+SECRET_KEY = 'l^&^wip9lx+b+ffqp^b0m*5s0pr1i6a$^(0(3n#=k=4ksyqov&)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -36,8 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gk_proj',
-
+    'exam',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'gk_proj.urls'
+ROOT_URLCONF = 'exam.urls'
 
-WSGI_APPLICATION = 'gk_proj.wsgi.application'
+WSGI_APPLICATION = 'exam.wsgi.application'
 
 
 # Database
@@ -61,7 +60,7 @@ WSGI_APPLICATION = 'gk_proj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'gk_proj/../db.sqlite3'),
     }
 }
 
@@ -85,5 +84,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR,  'templates'),
+    os.path.join(BASE_DIR, 'gk_proj/../templates'),
 )

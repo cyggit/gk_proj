@@ -15,10 +15,14 @@
     </style>
 </head>
 <body>
-{% for post in posts %}
-    <h2>{{ post.title }}</h2>
-    <p>{{ post.timestamp }}</p>
-    <p> {{ post.body }}</p>
+{% for topic in topics %}
+    <h2>{{ topic.Question | safe }}</h2>
+    <p>{{ topic.OptionA | safe  }}</p>
+    <p>{{ topic.OptionB | safe  }}</p>
+    <p>{{ topic.OptionC | safe  }}</p>
+    <p>{{ topic.OptionD | safe  }}</p>
+    <p>{{ topic.OptionE | safe  }}</p>
+    <p>{{ topic.OptionF | safe  }}</p>
 {% endfor %}
 
 </body>
