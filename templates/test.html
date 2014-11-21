@@ -12,18 +12,34 @@
             font-family: 'sans-serif';
             font-size: 16px;
         }
+        #question p{
+           padding:0px; margin:0px;display: inline;
+        }
     </style>
 </head>
 <body>
-{% for topic in topics %}
-    <h2>{{ topic.Question | safe }}</h2>
-    <p>{{ topic.OptionA | safe  }}</p>
-    <p>{{ topic.OptionB | safe  }}</p>
-    <p>{{ topic.OptionC | safe  }}</p>
-    <p>{{ topic.OptionD | safe  }}</p>
-    <p>{{ topic.OptionE | safe  }}</p>
-    <p>{{ topic.OptionF | safe  }}</p>
-{% endfor %}
+    {{ paper.Notice }}
+    <br/>
 
+    {% for topic in topics %}
+    <div style="margin-bottom: 20px;margin-top: 20px">
+    <p style="font-size: 22px;font: blod">
+        {%  if topic.PaperNo == paper.Part1Sum %}
+                {{ paper.Part1Title }}
+        {% elif topic.PaperNo == paper.Part2Sum %}
+                {{ paper.Part2Title }}
+        {% endif %}
+     </p>
+        </div>
+        <div id="question" style="display: inline">
+        {{ topic.PaperNo }}.{{ topic.Question | safe }}<br/>
+        <input type="radio"/>{{ topic.OptionA | safe  }}<br/>
+        <input type="radio"/>{{ topic.OptionB | safe  }}<br/>
+        <input type="radio"/>{{ topic.OptionC | safe  }}<br/>
+        <input type="radio"/>{{ topic.OptionD | safe  }}<br/>
+        <input type="radio"/>{{ topic.OptionE | safe  }}<br/>
+        <input type="radio"/>{{ topic.OptionF | safe  }}<br/>
+        </div>
+    {% endfor %}
 </body>
 </html>
