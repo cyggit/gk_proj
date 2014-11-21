@@ -23,23 +23,60 @@
 
     {% for topic in topics %}
     <div style="margin-bottom: 20px;margin-top: 20px">
-    <p style="font-size: 22px;font: blod">
+    <p style="font-size: 22px">
         {%  if topic.PaperNo == paper.Part1Sum %}
                 {{ paper.Part1Title }}
         {% elif topic.PaperNo == paper.Part2Sum %}
-                {{ paper.Part2Title }}
+                 {{ paper.Part2Title }}
+        {% elif topic.PaperNo == paper.Part3Sum %}
+                {{ paper.Part3Title }}
+        {% elif topic.PaperNo == paper.Part4Sum %}
+                {{ paper.Part4Title }}
+        {% elif topic.PaperNo == paper.Part5Sum %}
+                {{ paper.Part5Title }}
+        {% elif topic.PaperNo == paper.Part6Sum %}
+                {{ paper.Part6Title }}
         {% endif %}
      </p>
         </div>
         <div id="question" style="display: inline">
         {{ topic.PaperNo }}.{{ topic.Question | safe }}<br/>
-        <input type="radio"/>{{ topic.OptionA | safe  }}<br/>
-        <input type="radio"/>{{ topic.OptionB | safe  }}<br/>
-        <input type="radio"/>{{ topic.OptionC | safe  }}<br/>
-        <input type="radio"/>{{ topic.OptionD | safe  }}<br/>
-        <input type="radio"/>{{ topic.OptionE | safe  }}<br/>
-        <input type="radio"/>{{ topic.OptionF | safe  }}<br/>
+        {% if topic.QuestionType == 1 or topic.QuestionType == 3 %}
+            <input type="radio" name="choice{{ topic.PaperNo }}" id="ChoiceA"/>{{ topic.OptionA | safe  }}<br/>
+            <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceB" />{{ topic.OptionB | safe  }}<br/>
+            {% if topic.OptionC %}
+            <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceC" />{{ topic.OptionC | safe  }}<br/>
+            {% endif %}
+            {% if topic.OptionD %}
+                <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceD" />{{ topic.OptionD | safe  }}<br/>
+            {% endif %}
+            {% if topic.OptionE %}
+                <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceE"/>{{ topic.OptionE | safe  }}<br/>
+            {% endif %}
+            {% if topic.OptionF %}
+                <input type="radio"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}<br/>
+            {% endif %}
+        {% elif topic.QuestionType == 2 %}
+            <input type="checkbox" name="choice{{ topic.PaperNo }}" id="ChoiceA"/>{{ topic.OptionA | safe  }}<br/>
+            <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceB" />{{ topic.OptionB | safe  }}<br/>
+            {% if topic.OptionC %}
+                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceC" />{{ topic.OptionC | safe  }}<br/>
+            {% endif %}
+            {% if topic.OptionD %}
+                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceD" />{{ topic.OptionD | safe  }}<br/>
+            {% endif %}
+            {% if topic.OptionE %}
+                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceE"/>{{ topic.OptionE | safe  }}<br/>
+            {% endif %}
+            {% if topic.OptionF %}
+                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}<br/>
+            {% endif %}
+{#        {% elif topic.QuestionType == 4 %}#}
+{#            这是资料分析题。#}
+        {% endif %}
         </div>
     {% endfor %}
+
+
 </body>
 </html>

@@ -23,7 +23,8 @@ class Exam(models.Model):
     TopicId=models.AutoField(primary_key=True)  #题目ID
     PaperId=models.IntegerField()               #对应的试卷
     PaperNo=models.SmallIntegerField()          #在试卷中的题号
-    QuestionType=models.IntegerField()          #题目类型，单选、多选、判断
+    QuestionType=models.IntegerField()          #题目类型，1单选、2多选、3判断,4资料分析
+    QuestionSet=models.SmallIntegerField(blank=True)      #多选题集合，与PaperId一起组成键
     Question=models.TextField()                 #问题
     OptionA=models.TextField()                  #选项A,B,C,D,E,F
     OptionB=models.TextField()
@@ -33,6 +34,8 @@ class Exam(models.Model):
     OptionF=models.TextField(blank=True)
     Answer=models.CharField(max_length=10)
     Suggestion=models.TextField()
+    def __unicode__(self):
+        return repr(self.TopicId)
 
 
 class Paper(models.Model):
@@ -55,7 +58,8 @@ class Paper(models.Model):
     Part5Sum=models.SmallIntegerField(blank=True)                        #第五部分从第几题开始
     Part6Title=models.TextField(max_length=100,blank=True)     #第六部分标题
     Part6Sum=models.SmallIntegerField(blank=True)                        #第六部分从第几题开始
-
+    def __unicode__(self):
+        return repr(self.PaperId)
 
 admin.site.register(BlogPost)
 admin.site.register(User)
