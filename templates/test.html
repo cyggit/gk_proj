@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+
     <meta charset="UTF-8">
     <title></title>
     <style type="text/css">
@@ -16,6 +17,8 @@
            padding:0px; margin:0px;display: inline;
         }
     </style>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static  '/static/css/bootstrap.min.css' %}">
 </head>
 <body>
     {{ paper.Notice }}
@@ -77,6 +80,7 @@
         </div>
     {% endfor %}
 
-
+    <script src="/static/js/jquery-1.11.0.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
 </body>
 </html>
