@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <title>在线考试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+           <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+<!-- Move down content because we have a fixed navbar that is 50px tall -->
+  </head>
+  <body>
+      <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <img src="/static/img/less.png" alt=""/>
+                </div>
+                <div class="col-md-4">
+                  <p class="lead text-primary logo_content">Less is More.</p>
+                </div>
+            </div>
+      </div>
+
+  <div class="navbar navbar-inverse " role="navigation">
+      <div class="container">
+          <div class="col-md-6 top_tap" >
+        <ul class="nav nav-pills">
+              <li id="nav1"><a href="/">首页</a></li>
+              <li id="nav2"><a href="/doc">资料</a></li>
+              <li id="nav3"><a href="/exam">在线考试</a></li>
+          </ul>
+         </div>
+          {% block login_input %}
+                  <div class="col-md-6" style="padding-top: 4px;text-align: right">
+{#                     <form class="navbar-form navbar-right" role="form" method="POST" action="/login">#}
+{#                        <div class="form-group">#}
+{#                          <input type="text" placeholder="登录名/Email" class="form-control">#}
+{#                        </div>#}
+{#                        <div class="form-group">#}
+{#                          <input type="password" placeholder="密码" class="form-control">#}
+{#                        </div>#}
+{#                        <button type="submit" class="btn btn-success">登陆</button>#}
+{#                        <a class="btn btn-primary" href="register.html" >注册 &raquo;</a>#}
+{#                      </form>#}
+                       <a class="btn btn-success btn-default" href="/login" >登录</a>
+                       <a class="btn btn-info btn-default" href="register.html" >注册 &raquo;</a>
+                    </div>
+          {% endblock %}
+      </div>
+    </div>
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/static/js/jquery-1.11.0.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>

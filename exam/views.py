@@ -20,3 +20,5 @@ def archive(request):
     c=Context({'topics':topics,'paper':paper})
     return HttpResponse(t.render(c))
 
+def index(request):
+    return HttpResponse(loader.get_template('index.html').render(Context()))

@@ -3,41 +3,27 @@
 <head lang="en">
 
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <style type="text/css">
-        p{
-            font-family: 'sans-serif';
-            font-size: 16px;
-        }
-        .test_paper{
-            width: 80%;
-            max-width: 1000px;
-            margin-left: 100px;
-            margin-top: 50px;
-            border:1px solid #000000;
-            padding:10px;
-        }
-        .paper_title{
-            text-align: center;
-            font-size: 28px;
-            margin: 20px 0 20px 0;
-        }
         #question p{
-           padding:0px; margin:0px;display: inline;
+            display: inline;
         }
     </style>
-    {% load staticfiles %}
-    <link rel="stylesheet" href="{% static  '/static/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
 </head>
+
 <body>
 <div class="container">
-    <div class="test_paper">
-    <div class="paper_title">   {{ paper.Title }} </div>
+    <div class="row paper_title">
+      <h1>  {{ paper.Title }}</h1>
+    </div>
     {{ paper.Notice }}
     <br/>
     {% for topic in topics %}
     <div style="margin-bottom: 20px;margin-top: 20px">
-    <p style="font-size: 22px">
+    <h2>
         {%  if topic.PaperNo == paper.Part1Sum %}
                 {{ paper.Part1Title }}
         {% elif topic.PaperNo == paper.Part2Sum %}
@@ -51,51 +37,51 @@
         {% elif topic.PaperNo == paper.Part6Sum %}
                 {{ paper.Part6Title }}
         {% endif %}
-     </p>
+     </h2>
         </div>
         <div id="question" style="display: inline">
         {{ topic.PaperNo }}.{{ topic.Question | safe }}<br/>
         {% if topic.QuestionType == 1 or topic.QuestionType == 3 %}
-            <input type="radio" name="choice{{ topic.PaperNo }}" id="ChoiceA"/>{{ topic.OptionA | safe  }}<br/>
-            <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceB" />{{ topic.OptionB | safe  }}<br/>
+            <div class="radio">
+                <label><input type="radio" name="choice{{ topic.PaperNo }}" id="ChoiceA"/>{{ topic.OptionA | safe  }}</label>
+                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceB" />{{ topic.OptionB | safe  }}</label>
             {% if topic.OptionC %}
-            <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceC" />{{ topic.OptionC | safe  }}<br/>
+                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceC" />{{ topic.OptionC | safe  }}</label>
             {% endif %}
             {% if topic.OptionD %}
-                <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceD" />{{ topic.OptionD | safe  }}<br/>
+                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceD" />{{ topic.OptionD | safe  }}</label>
             {% endif %}
             {% if topic.OptionE %}
-                <input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceE"/>{{ topic.OptionE | safe  }}<br/>
+                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="ChoiceE"/>{{ topic.OptionE | safe  }}</label>
             {% endif %}
             {% if topic.OptionF %}
-                <input type="radio"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}<br/>
+                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}</label>
             {% endif %}
+            </div>
         {% elif topic.QuestionType == 2 %}
-            <input type="checkbox" name="choice{{ topic.PaperNo }}" id="ChoiceA"/>{{ topic.OptionA | safe  }}<br/>
-            <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceB" />{{ topic.OptionB | safe  }}<br/>
+            <div class="checkbox">
+            <label><input type="checkbox" name="choice{{ topic.PaperNo }}" id="ChoiceA"/>{{ topic.OptionA | safe  }}</label>
+            <label><input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceB" />{{ topic.OptionB | safe  }}</label>
             {% if topic.OptionC %}
-                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceC" />{{ topic.OptionC | safe  }}<br/>
+            <label><input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceC" />{{ topic.OptionC | safe  }} </label>
             {% endif %}
             {% if topic.OptionD %}
-                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceD" />{{ topic.OptionD | safe  }}<br/>
+            <label><input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceD" />{{ topic.OptionD | safe  }}</label>
             {% endif %}
             {% if topic.OptionE %}
-                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceE"/>{{ topic.OptionE | safe  }}<br/>
+            <label><input type="checkbox"  name="choice{{ topic.PaperNo }}" id="ChoiceE"/>{{ topic.OptionE | safe  }}</label>
             {% endif %}
             {% if topic.OptionF %}
-                <input type="checkbox"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}<br/>
+            <label><input type="checkbox"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}</label>
             {% endif %}
+            </div>
 {#        {% elif topic.QuestionType == 4 %}#}
 {#            这是资料分析题。#}
         {% endif %}
         </div>
     {% endfor %}
-
+</div> <!-- end of container -->
     <script src="/static/js/jquery-1.11.0.js"></script>
     <script src="/static/js/bootstrap.js"></script>
-    </div>
-
-
-</div> <!-- end of container -->
 </body>
 </html>
