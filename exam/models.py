@@ -25,6 +25,7 @@ class Exam(models.Model):
     PaperNo=models.SmallIntegerField()          #在试卷中的题号
     QuestionType=models.IntegerField()          #题目类型，1单选、2多选、3判断,4资料分析
     QuestionSet=models.SmallIntegerField(blank=True)      #多选题集合，与PaperId一起组成键
+    Material=models.TextField(blank=True)       #该题有资料的，先显示资料
     Question=models.TextField()                 #问题
     OptionA=models.TextField()                  #选项A,B,C,D,E,F
     OptionB=models.TextField()
