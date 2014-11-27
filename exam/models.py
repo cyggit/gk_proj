@@ -9,7 +9,7 @@ class BlogPost(models.Model):
     body=models.TextField()
     timestamp=models.DateTimeField()
 
-
+#
 class User(models.Model):
     UserId=models.IntegerField(primary_key=True)
     username=models.CharField(max_length=20)
@@ -38,7 +38,9 @@ class Exam(models.Model):
     def __unicode__(self):
         return repr(self.TopicId)
 
+# class ExamAdmin(admin.ModelAdmin):
 
+# ---------------------------------------------------------------------------------------------
 class Paper(models.Model):
     PaperId=models.AutoField(primary_key=True)      #试卷ID
     PaperType=models.CharField(max_length=10)       #试卷类型，1公务员，2职员，3雇员，4临聘

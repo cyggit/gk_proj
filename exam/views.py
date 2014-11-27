@@ -1,5 +1,6 @@
 __author__ = 'Administrator'
 from django.template import loader,Context
+from django.shortcuts import render_to_response,render
 from django.http import  HttpResponse
 from exam.models import  BlogPost,Exam,Paper
 from markdown import markdown
@@ -22,3 +23,6 @@ def archive(request):
 
 def index(request):
     return HttpResponse(loader.get_template('index.html').render(Context()))
+
+def about(request):
+    return render_to_response('index.html')

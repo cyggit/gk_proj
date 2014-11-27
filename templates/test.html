@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,33 +10,26 @@
         .question p{
             display: inline;
         }
-        .part{
-            margin: 0;
-        }
     </style>
-
 </head>
-
 <body>
 <div class="container">
-    <div class="row paper_title"><h1>{{ paper.Title }}</h1></div>
+    <div class="row paper_title"><h2>{{ paper.Title }}</h2></div>
     {{ paper.Notice }}<br/>
     {% for topic in topics %}
-    <h3 class="part">
         {%  if topic.PaperNo == paper.Part1Sum %}
-                {{ paper.Part1Title }}
+                <h3>{{ paper.Part1Title }}</h3>
         {% elif topic.PaperNo == paper.Part2Sum %}
-                 {{ paper.Part2Title }}
+                 <h3>{{ paper.Part2Title }}</h3>
         {% elif topic.PaperNo == paper.Part3Sum %}
-                {{ paper.Part3Title }}
+                <h3>{{ paper.Part3Title }}</h3>
         {% elif topic.PaperNo == paper.Part4Sum %}
-                {{ paper.Part4Title }}
+                <h3>{{ paper.Part4Title }}</h3>
         {% elif topic.PaperNo == paper.Part5Sum %}
-                {{ paper.Part5Title }}
+                <h3>{{ paper.Part5Title }}</h3>
         {% elif topic.PaperNo == paper.Part6Sum %}
-                {{ paper.Part6Title }}
+                <h3>{{ paper.Part6Title }}</h3>
         {% endif %}
-     </h3>
         <div class="row question" id="question{{ topic.PaperNo }}" style="display: inline">
         {% if topic.Material %}
             {{ topic.Material }}
@@ -80,6 +72,8 @@
         {% endif %}
         </div><!-- end of questions -->
         <hr style="border:1px dashed #c0c0c0;"/>
+    {% empty %}
+       <em>not topic found!</em>
     {% endfor %}
 </div> <!-- end of container -->
     <script src="/static/js/jquery-1.11.0.js"></script>
