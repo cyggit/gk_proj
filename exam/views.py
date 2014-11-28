@@ -26,3 +26,6 @@ def index(request):
 
 def about(request):
     return render_to_response('index.html')
+
+def exam(request):
+    return  render_to_response('exam.html')

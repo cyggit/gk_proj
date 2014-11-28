@@ -1,7 +1,7 @@
 #coding=utf-8
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from exam.views import archive,index,about
+from exam.views import archive,index,about,exam
 
 urlpatterns = patterns('',
     # Examples:
@@ -11,4 +11,5 @@ urlpatterns = patterns('',
     url(r'^$', archive),
     url(r'^index',index),
     url(r'^about',about),
+    url(r'^exam',exam)
 )
