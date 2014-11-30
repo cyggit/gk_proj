@@ -10,10 +10,68 @@
         .question p{
             display: inline;
         }
+        .sidebar{
+            position: fixed;
+            top: 51px;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            display: block;
+            padding: 20px;
+            overflow-x: hidden;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+            border-right: 1px solid #eee;
+        }
+        .main{
+            padding-right: 40px;
+            padding-left: 40px;
+        }
     </style>
+    <script type="javascript">
+        $(document).ready(function(){
+
+        });
+    </script>
 </head>
 <body>
-<div class="container">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse" style="margin-right: 100px;">
+            <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">设置</a></li>
+            <li><a href="#">帮助</a></li>
+          </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+<div class="row">
+
+<div class="col-sm-3 col-md-2 sidebar">
+<ul class="list-group">
+    <li class="list-group-item">
+        第一部分 <span class="badge">10</span>
+    </li>
+    <li class="list-group-item">
+     第二部分 <span class="badge">10</span>
+    </li>
+    <li class="list-group-item">
+      第三部分 <span class="badge">10</span>
+    </li>
+    <li class="list-group-item">
+        第四部分 <span class="badge">10</span>
+    </li>
+    <li class="list-group-item">
+        第五部分 <span class="badge">10</span>
+    </li>
+</ul>
+</div>
+
+
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <div class="row paper_title"><h2>{{ paper.Title }}</h2></div>
     {{ paper.Notice }}<br/>
     {% for topic in topics %}
@@ -75,7 +133,9 @@
     {% empty %}
        <em>not topic found!</em>
     {% endfor %}
-</div> <!-- end of container -->
+</div> <!-- end of topic container -->
+</div> <!-- end of top row -->
+</div> <!-- end of top container-->
     <script src="/static/js/jquery-1.11.0.js"></script>
     <script src="/static/js/bootstrap.js"></script>
 </body>
