@@ -29,3 +29,6 @@ def about(request):
 
 def exam(request):
     return  render_to_response('exam.html')
+
+def test2(request):
+    return render_to_response('test2.html')

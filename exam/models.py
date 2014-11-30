@@ -6,6 +6,7 @@ from django.contrib import admin
 
 class BlogPost(models.Model):
     title=models.CharField(max_length=150)
+    Catagory=models.SmallIntegerField()
     body=models.TextField()
     timestamp=models.DateTimeField()
 
