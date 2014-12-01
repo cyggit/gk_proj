@@ -106,8 +106,11 @@
                 <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="Choice{{ topic.PaperNo }}E"/>{{ topic.OptionE | safe  }}</label> <br/>
             {% endif %}
             {% if topic.OptionF %}
-                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="F" />{{ topic.OptionF | safe  }}</label><br/>
+                <label><input type="radio"  name="choice{{ topic.PaperNo }}" id="Choice{{ topic.PaperNo }}F" />{{ topic.OptionF | safe  }}</label><br/>
             {% endif %}
+            <div id="user_choice{{ topic.PaperNo }}"></div>
+            <div id="topic_choice{{ topic.PaperNo }}"></div>
+            <div id="suggest_{{ topic.PaperNo }}"></div>
             </div>
         {% elif topic.QuestionType == 2 %}
             <div class="checkbox">
