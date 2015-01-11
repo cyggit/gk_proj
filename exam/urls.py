@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^about',about),
     url(r'^exam',exam),
     url(r'^test2',test2),
+    url(r'name',get_name),
+    url(r'resp',get_name_resp),
 )

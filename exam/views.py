@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response,render
 from django.http import  HttpResponse
 from exam.models import  BlogPost,Exam,Paper
 from markdown import markdown
+from forms import NameForm
 
 def archive(request):
     p = 1          #p=request.get('paperId')
@@ -32,3 +33,9 @@ def exam(request):
 
 def test2(request):
     return render_to_response('test2.html')
+
+def get_name(request):
+    return render_to_response('test2.html')
+def  get_name_resp(request):
+    your_name=request.GET['your_name']
+    return render_to_response('resp.html',{'your_name':your_name})
