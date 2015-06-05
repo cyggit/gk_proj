@@ -26,6 +26,7 @@ class Exam(models.Model):
     PaperNo=models.SmallIntegerField()          #在试卷中的题号
     QuestionType=models.IntegerField()          #题目类型，1单选、2多选、3判断,4资料分析
     QuestionSet=models.SmallIntegerField(blank=True)      #多选题集合，与PaperId一起组成键
+    Score=models.SmallIntegerField(default=0)   #题目分值，默认0
     Material=models.TextField(blank=True)       #该题有资料的，先显示资料
     Question=models.TextField()                 #问题
     OptionA=models.TextField()                  #选项A,B,C,D,E,F
@@ -38,8 +39,6 @@ class Exam(models.Model):
     Suggestion=models.TextField()
     def __unicode__(self):
         return repr(self.TopicId)
-
-# class ExamAdmin(admin.ModelAdmin):
 
 # ---------------------------------------------------------------------------------------------
 class Paper(models.Model):
@@ -64,6 +63,13 @@ class Paper(models.Model):
     Part6Sum=models.SmallIntegerField(blank=True)                        #第六部分从第几题开始
     def __unicode__(self):
         return repr(self.PaperId)
+
+class UserScore(models.Model):
+    PaperId=models.IntegerField(null=False)
+    UserId=models.IntegerField(null=False)
+    SelfAnswer=models.TextField(max_length=500,blank=True)         #保存答案的json数据
+    SelfScore=models.SmallIntegerField()
+
 
 admin.site.register(BlogPost)
 admin.site.register(User)
